@@ -14,9 +14,10 @@ module ActsAsCommentableWithReplies
 
     # voting
     def comment(args = {})
-      return false if args[:commentable].nil? || args[:message].nil?
+      return nil if args[:commentable].nil? || args[:message].nil?
       args[:commentable].comment args.merge({:commenter => self})
     end
+    alias :comment! :comment
 
     # results
     def commented_on?(commentable)

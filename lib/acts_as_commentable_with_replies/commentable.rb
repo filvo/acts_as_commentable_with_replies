@@ -22,7 +22,7 @@ module ActsAsCommentableWithReplies
 
     # voting
     def comment(args = {})
-      return false if args[:commenter].nil? || args[:message].nil?
+      return nil if args[:commenter].nil? || args[:message].nil?
 
       comment = Comment.new(
           :commentable => self,
@@ -33,11 +33,12 @@ module ActsAsCommentableWithReplies
       if comment.save
         update_cached_comments
         comment.move_to_child_of(args[:parent]) if !args[:parent].nil?
-        true
+        comment
       else
-        false
+        nil
       end
     end
+    alias :comment! :comment
 
 
     # caching
