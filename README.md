@@ -105,8 +105,8 @@ Don't know. Haven't decided yet.
 
 ## Credits
 * [Ryan T](https://github.com/ryanto) - This gem is heavily influenced from [acts_as_voteable]
-* [Evan David Light](https://github.com/elight) - Because this gem is inspired by [acts_as_commentable_with_threading].
-But this gem only supports user as commenter and there are no shortcuts to create comment.
+* [Evan David Light](https://github.com/elight) - Because this gem is inspired from [acts_as_commentable_with_threading].
+But [acts_as_commentable_with_threading] only supports user as commenter and there are no shortcuts to create comment.
 
 Thank you guys! Without you I don't know if it was possible or not!
 
