@@ -1,5 +1,7 @@
 # Acts As Commentable With Replies
 
+## Please don't use it as of now. Because it's under testing.
+
 Acts As Commentable With Replies is a Ruby Gem specifically written for Rails/ActiveRecord models.
 The main goals of this gem are:
 
@@ -80,7 +82,7 @@ You can also use it as a reply system in comments
 
 ### Caching
 
-To speed up perform you can add cache columns to your commentable model's table.  These
+To speed up performance you can add cache columns to your commentable model's table.  These
 columns will automatically be updated after each comment.  For example, if we wanted
 to speed up @post we would use the following migration:
 
@@ -99,6 +101,14 @@ to speed up @post we would use the following migration:
 ## TODO
 
 Don't know. Haven't decided yet.
+
+
+## Credits
+* [Ryan T](https://github.com/ryanto) - This gem is heavily influenced from [acts_as_voteable]
+* [Evan David Light](https://github.com/elight) - Because this gem is inspired by [acts_as_commentable_with_threading].
+But this gem only supports user as commenter and there are no shortcuts to create comment.
+
+Thank you guys! Without you I don't know if it was possible or not!
 
 
 ## Contributing
