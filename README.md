@@ -70,11 +70,12 @@ You can also use it as a reply system in comments
 
     # to check whether or not user has posted comment on it
     @post.commented_by?(@user)
+
     #or
     @user.commented_on?(@post)
 
     # to get the list of root comments, not replies
-    @post.root_comments => will list
+    @post.root_comments
 
 
 ### Caching
