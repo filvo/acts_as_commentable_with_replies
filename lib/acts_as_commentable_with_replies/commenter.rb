@@ -4,7 +4,7 @@ module ActsAsCommentableWithReplies
     def self.included(base)
       base.class_eval do
         belongs_to :commenter, :polymorphic => true
-        has_many :comments, :as => :commenter do
+        has_many :comments, :as => :commenter, :dependent => :delete_all do
           def commentables
             includes(:commentable).map(&:commentable)
           end
@@ -13,24 +13,19 @@ module ActsAsCommentableWithReplies
     end
 
     # voting
-    def comment(args = {})
+    def comment args = {}
       return nil if args[:commentable].nil? || args[:message].nil?
       args[:commentable].comment args.merge({:commenter => self})
     end
-    alias :comment! :comment
 
-    # results
+
     def commented_on?(commentable)
-      comments = find_comments(:commentable_id => commentable.id, :commentable_type => commentable.class.name)
-      comments.size > 0
+      __comments__ = find_comments(:commentable_id => commentable.id, :commentable_type => commentable.class.name)
+      __comments__.size > 0
     end
 
     def find_comments(extra_conditions = {})
-      comments.where(extra_conditions)
-    end
-
-    def find_comments_for_class(klass, extra_conditions = {})
-      find_comments extra_conditions.merge({:commentable_type => klass.name})
+      self.comments.where(extra_conditions)
     end
 
   end
