@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = ActsAsCommentableWithReplies::VERSION
 
-  gem.add_development_dependency 'rails', '~> 3.0'
+  gem.add_development_dependency 'rails', '~> 4.0'
 
   gem.add_dependency 'awesome_nested_set', '>= 2.0'
 end
